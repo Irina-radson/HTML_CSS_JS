@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi-Lunettes | Lunettes de Vue, Soleil & Vos Points de Vente</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Configuration Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        milunettes: {
+                            orange: '#FF8C00',
+                            lightorange: '#FFF3E0',
+                            darkorange: '#E67E22',
+                            red: '#D32F2F',
+                            darkred: '#B71C1C',
+                            bg: '#FAFAFA',
+                            dark: '#2C3E50',
+                        }
+                    },
+
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        brand: ['Fredoka', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Notre CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-milunettes-bg text-milunettes-dark font-sans antialiased selection:bg-milunettes-orange selection:text-white">
+
+    <!-- =====================================================
+         TOP ANNOUNCEMENT BAR
+    ====================================================== -->
+
+    <div class="bg-gradient-to-r from-milunettes-orange to-milunettes-red text-white text-xs py-2 px-4 text-center font-medium flex justify-between items-center md:px-10">
+
+        <span class="hidden md:inline font-brand tracking-wide">
+            👓 Le sourire sur toutes les montures !
+        </span>
+
+        <p class="mx-auto md:mx-0 font-medium">
+            ✨ Bienvenue chez
+            <span class="font-bold underline decoration-white font-brand">
+                Mi-Lunettes
+            </span>
+            - Testez nos lunettes en ligne ou en point de vente !
+        </p>
+
+        <span class="hidden md:inline font-brand tracking-wide">
+            <i class="fa-solid fa-store mr-1"></i>
+            +15 Boutiques en France
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="sticky top-0 z-40 glass-header border-b border-orange-100 shadow-sm transition-all duration-300">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Mobile menu -->
+                <button
+                    type="button"
+                    onclick="toggleMobileMenu()"
+                    class="lg:hidden p-2 text-milunettes-dark hover:text-milunettes-orange focus:outline-none"
+                    aria-label="Ouvrir le menu">
+
+                    <i class="fa-solid fa-bars text-2xl"></i>
+
+                </button>
+
+
+                <!-- Logo -->
+
+                <a href="#" class="flex items-center gap-2 group">
+
+                    <img
+                        src="logo.png"
+                        alt="Mi-Lunettes Logo"
+                        class="h-14 w-auto object-contain transition-transform group-hover:scale-105"
+                        onerror="this.onerror=null; this.src='https://placehold.co/180x70/ff8c00/ffffff?text=Mi-Lunettes';">
+
+                </a>
+
+
+                <!-- Navigation -->
+
+                <nav class="hidden lg:flex space-x-8 text-sm font-semibold tracking-wide">
+
+                    <a href="#hero"
+                       class="text-milunettes-dark hover:text-milunettes-orange transition-colors py-2 border-b-2 border-transparent hover:border-milunettes-orange">
+                        Accueil
+                    </a>
+
+                    <a href="#collections"
+                       class="text-milunettes-dark hover:text-milunettes-orange transition-colors py-2 border-b-2 border-transparent hover:border-milunettes-orange">
+                        Collections
+                    </a>
+
+                    <a href="#essayage"
+                       class="text-milunettes-orange font-brand text-base hover:opacity-80 transition-opacity py-2 flex items-center gap-1.5">
+
+                        <i class="fa-solid fa-camera"></i>
+                        Essayage Virtuel
+
+                    </a>
+
+                    <a href="#points-de-vente"
+                       class="text-milunettes-dark hover:text-milunettes-orange transition-colors py-2 border-b-2 border-transparent hover:border-milunettes-orange flex items-center gap-1">
+
+                        <i class="fa-solid fa-location-dot text-milunettes-red text-xs"></i>
+                        Nos Points de Vente
+
+                    </a>
+
+                    <a href="#contact"
+                       class="text-milunettes-dark hover:text-milunettes-orange transition-colors py-2 border-b-2 border-transparent hover:border-milunettes-orange">
+                        Contact
+                    </a>
+
+                </nav>
+
+
+                <!-- Actions -->
+
+                <div class="flex items-center gap-3 sm:gap-4">
+
+                    <!-- Recherche -->
+
+                    <div class="relative hidden sm:block">
+
+                        <div class="flex items-center bg-milunettes-lightorange/80 rounded-full px-3.5 py-1.5 border border-orange-200 focus-within:border-milunettes-orange focus-within:bg-white transition-all">
+
+                            <i class="fa-solid fa-magnifying-glass text-milunettes-orange text-sm"></i>
+
+                            <input
+                                type="text"
+                                id="search-input"
+                                placeholder="Rechercher une monture..."
+                                onkeyup="handleSearch(event)"
+                                class="bg-transparent border-none text-xs text-milunettes-dark placeholder-gray-400 focus:outline-none ml-2 w-32 focus:w-48 transition-all">
+
+                        </div>
+
+
+                        <div
+                            id="search-results"
+                            class="hidden absolute right-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl border border-orange-100 overflow-hidden z-50 p-3">
+
+                            <p class="text-[10px] text-gray-400 uppercase tracking-wider font-bold px-2 mb-1">
+                                Suggestions Mi-Lunettes
+                            </p>
+
+                            <a href="#collections"
+                               onclick="filterCategory('soleil')"
+                               class="flex items-center gap-3 p-2 hover:bg-milunettes-lightorange rounded-xl text-xs font-medium">
+
+                                <i class="fa-solid fa-sun text-milunettes-orange"></i>
+                                Lunettes de Soleil Tendance
+
+                            </a>
+
+                            <a href="#collections"
+                               onclick="filterCategory('vue')"
+                               class="flex items-center gap-3 p-2 hover:bg-milunettes-lightorange rounded-xl text-xs font-medium">
+
+                                <i class="fa-solid fa-glasses text-milunettes-red"></i>
+                                Montures Anti-Lumière Bleue
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Favoris -->
+
+                    <button
+                        class="p-2 text-milunettes-dark hover:text-milunettes-red transition-colors relative"
+                        onclick="openWishlistToast()"
+                        title="Mes Favoris">
+
+                        <i class="fa-regular fa-heart text-xl"></i>
+
+                        <span
+                            id="wishlist-badge"
+                            class="absolute top-1 right-1 bg-milunettes-red text-white text-[10px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold scale-0 transition-transform">
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <!-- Panier -->
+
+                    <button
+                        onclick="toggleCartDrawer()"
+                        class="bg-gradient-to-r from-milunettes-orange to-milunettes-red text-white px-4 py-2 rounded-full hover:opacity-95 transition-all shadow-md flex items-center gap-2.5 font-bold text-xs"
+                        title="Voir le Panier">
+
+                        <i class="fa-solid fa-cart-shopping text-sm"></i>
+
+                        <span class="hidden sm:inline font-brand tracking-wider">
+                            Panier
+                        </span>
+
+                        <span
+                            id="cart-badge"
+                            class="bg-white text-milunettes-red text-xs px-2 py-0.5 rounded-full font-bold">
+                            0
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Mobile menu -->
+
+        <div
+            id="mobile-menu"
+            class="hidden lg:hidden border-t border-orange-100 bg-white px-6 py-4 space-y-3">
+
+            <div class="pb-2">
+
+                <input
+                    type="text"
+                    placeholder="Rechercher des montures..."
+                    class="w-full bg-milunettes-lightorange border border-orange-200 rounded-full px-4 py-2 text-xs focus:outline-none">
+
+            </div>
+
+            <a href="#hero" onclick="toggleMobileMenu()"
+               class="block text-sm font-semibold text-milunettes-dark py-1">
+                Accueil
+            </a>
+
+            <a href="#collections" onclick="toggleMobileMenu()"
+               class="block text-sm font-semibold text-milunettes-dark py-1">
+                Collections
+            </a>
+
+            <a href="#essayage" onclick="toggleMobileMenu()"
+               class="block text-sm font-bold text-milunettes-orange py-1">
+
+                <i class="fa-solid fa-camera mr-2"></i>
+                Essayage Virtuel
+
+            </a>
+
+            <a href="#points-de-vente" onclick="toggleMobileMenu()"
+               class="block text-sm font-semibold text-milunettes-dark py-1">
+
+                <i class="fa-solid fa-location-dot text-milunettes-red mr-2"></i>
+                Nos Points de Vente
+
+            </a>
+
+            <a href="#contact" onclick="toggleMobileMenu()"
+               class="block text-sm font-semibold text-milunettes-dark py-1">
+                Contact
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section
+        id="hero"
+        class="relative bg-gradient-to-br from-orange-50 via-amber-50 to-red-50 py-16 lg:py-24 overflow-hidden">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Texte -->
+
+                <div class="lg:col-span-7 text-center lg:text-left">
+
+                    <span class="inline-flex items-center gap-2 bg-white border border-orange-200 text-milunettes-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+
+                        <i class="fa-solid fa-thumbs-up text-milunettes-orange"></i>
+
+                        La garantie du meilleur sourire !
+
+                    </span>
+
+
+                    <h1 class="font-brand text-4xl sm:text-6xl font-bold text-milunettes-dark leading-tight mb-6">
+
+                        Trouvez les lunettes qui
+
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-milunettes-orange to-milunettes-red">
+                            vous font sourire
+                        </span>
+
+                        👍
+
+                    </h1>
+
+
+                    <p class="text-gray-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+
+                        Bienvenue chez <strong>Mi-Lunettes</strong>.
+                        Découvrez notre large gamme de montures de vue et de soleil pour toute la famille.
+                        Essayez vos modèles préférés en ligne ou rendez-vous dans nos points de vente !
+
+                    </p>
+
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+                        <a
+                            href="#collections"
+                            class="bg-gradient-to-r from-milunettes-orange to-milunettes-darkorange text-white px-8 py-4 rounded-full font-bold text-sm hover:shadow-lg transform hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-2 shadow-md">
+
+                            <i class="fa-solid fa-glasses"></i>
+                            Découvrir la collection
+
+                        </a>
+
+
+                        <a
+                            href="#points-de-vente"
+                            class="bg-white border-2 border-milunettes-red text-milunettes-red hover:bg-milunettes-red hover:text-white px-8 py-4 rounded-full font-bold text-sm transition-all text-center flex items-center justify-center gap-2 shadow-sm">
+
+                            <i class="fa-solid fa-store"></i>
+                            Trouver un point de vente
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- Statistiques -->
+
+                    <div class="mt-10 pt-8 border-t border-orange-200/80 grid grid-cols-3 gap-4">
+
+                        <div class="text-center lg:text-left">
+                            <p class="font-brand text-2xl font-bold text-milunettes-orange">
+                                +1 500
+                            </p>
+                            <p class="text-xs text-gray-500 font-medium">
+                                Montures en stock
+                            </p>
+                        </div>
+
+                        <div class="text-center lg:text-left">
+                            <p class="font-brand text-2xl font-bold text-milunettes-red">
+                                15
+                            </p>
+                            <p class="text-xs text-gray-500 font-medium">
+                                Points de vente
+                            </p>
+                        </div>
+
+                        <div class="text-center lg:text-left">
+                            <p class="font-brand text-2xl font-bold text-milunettes-orange">
+                                4.9/5
+                            </p>
+                            <p class="text-xs text-gray-500 font-medium">
+                                Avis Clients
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Image -->
+
+                <div class="lg:col-span-5 relative flex justify-center">
+
+                    <div class="relative w-full max-w-md">
+
+                        <div class="bg-white rounded-3xl p-6 shadow-2xl border border-orange-100 relative z-10">
+
+                            <div class="relative rounded-2xl overflow-hidden mb-4 bg-orange-50 h-64 flex items-center justify-center">
+
+                                <img
+                                    id="hero-showcase-img"
+                                    src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop"
+                                    alt="Lunettes Mi-Lunettes"
+                                    class="w-full h-full object-cover transition-all duration-500">
+
+                                <div class="absolute top-3 left-3 bg-milunettes-red text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase font-brand">
+                                    Coup de cœur Mi-Lunettes
+                                </div>
+
+                            </div>
+
+
+                            <div class="flex items-center justify-between">
+
+                                <div>
+                                    <h3 class="font-brand text-xl text-milunettes-dark">
+                                        Modèle Solaire Joy
+                                    </h3>
+
+                                    <p class="text-xs text-gray-500">
+                                        Monture acétate ambrée & protection UV400
+                                    </p>
+                                </div>
+
+                                <span class="font-brand text-2xl font-bold text-milunettes-orange">
+                                    89 €
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-orange-200 z-20 flex items-center gap-3 backdrop-blur-sm">
+
+                            <img
+                                src="logo.png"
+                                alt="Icone Mi-Lunettes"
+                                class="w-12 h-12 object-contain"
+                                onerror="this.onerror=null; this.src='https://placehold.co/100x100/ff8c00/ffffff?text=👍';">
+
+                            <div>
+
+                                <p class="text-xs font-bold text-milunettes-dark font-brand">
+                                    Essayage 100% Facile
+                                </p>
+
+                                <p class="text-[10px] text-gray-500">
+                                    Directement en ligne ou en magasin
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COLLECTIONS
+    ====================================================== -->
+
+    <section
+        id="collections"
+        class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+
+            <div>
+
+                <span class="text-xs font-bold uppercase tracking-wider text-milunettes-red font-brand">
+
+                    <i class="fa-solid fa-star mr-1"></i>
+                    Choix & Qualité
+
+                </span>
+
+                <h2 class="font-brand text-3xl sm:text-4xl text-milunettes-dark font-bold mt-1">
+                    Nos Collections de Lunettes
+                </h2>
+
+            </div>
+
+
+            <!-- Filtres -->
+
+            <div
+                class="flex flex-wrap gap-2 mt-6 md:mt-0"
+                id="category-filters">
+
+                <button
+                    onclick="filterCategory('all')"
+                    class="cat-btn active bg-milunettes-orange text-white px-5 py-2 rounded-full text-xs font-bold font-brand transition-all shadow-sm">
+                    Toutes les montures
+                </button>
+
+                <button
+                    onclick="filterCategory('vue')"
+                    class="cat-btn bg-white border border-orange-200 text-milunettes-dark hover:bg-milunettes-lightorange px-5 py-2 rounded-full text-xs font-bold font-brand transition-all">
+                    Lunettes de vue
+                </button>
+
+                <button
+                    onclick="filterCategory('soleil')"
+                    class="cat-btn bg-white border border-orange-200 text-milunettes-dark hover:bg-milunettes-lightorange px-5 py-2 rounded-full text-xs font-bold font-brand transition-all">
+                    Lunettes de soleil
+                </button>
+
+                <button
+                    onclick="filterCategory('homme')"
+                    class="cat-btn bg-white border border-orange-200 text-milunettes-dark hover:bg-milunettes-lightorange px-5 py-2 rounded-full text-xs font-bold font-brand transition-all">
+                    Homme
+                </button>
+
+                <button
+                    onclick="filterCategory('femme')"
+                    class="cat-btn bg-white border border-orange-200 text-milunettes-dark hover:bg-milunettes-lightorange px-5 py-2 rounded-full text-xs font-bold font-brand transition-all">
+                    Femme
+                </button>
+
+                <button
+                    onclick="filterCategory('enfant')"
+                    class="cat-btn bg-white border border-orange-200 text-milunettes-dark hover:bg-milunettes-lightorange px-5 py-2 rounded-full text-xs font-bold font-brand transition-all">
+                    Enfant
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Prix -->
+
+        <div class="bg-milunettes-lightorange/60 rounded-2xl p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 border border-orange-200">
+
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+
+                <i class="fa-solid fa-sliders text-milunettes-orange"></i>
+
+                <span class="text-xs font-bold text-milunettes-dark">
+
+                    Prix max :
+                    <span id="price-value" class="text-milunettes-red">
+                        150 €
+                    </span>
+
+                </span>
+
+                <input
+                    type="range"
+                    id="price-range"
+                    min="40"
+                    max="200"
+                    step="10"
+                    value="150"
+                    oninput="filterByPrice(this.value)"
+                    class="w-full sm:w-48 accent-milunettes-orange">
+
+            </div>
+
+            <p class="text-xs text-gray-500">
+
+                <i class="fa-solid fa-truck-fast text-milunettes-orange mr-1"></i>
+
+                Livraison gratuite dès 50 € en Point de Vente ou à Domicile
+
+            </p>
+
+        </div>
+
+
+        <!-- Produits générés par JS -->
+
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            id="products-grid">
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ESSAYAGE VIRTUEL
+    ====================================================== -->
+
+    <section
+        id="essayage"
+        class="py-20 bg-gradient-to-b from-milunettes-dark to-slate-900 text-white relative overflow-hidden">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-5">
+
+                    <span class="bg-milunettes-orange/20 text-milunettes-orange border border-milunettes-orange/40 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider font-brand inline-block mb-3">
+
+                        <i class="fa-solid fa-camera mr-1"></i>
+                        Innovation Mi-Lunettes
+
+                    </span>
+
+                    <h2 class="font-brand text-3xl sm:text-4xl font-bold mb-4">
+                        Miroir d'Essayage Virtuel
+                    </h2>
+
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Testez instantanément nos montures directement sur votre visage depuis votre smartphone ou votre ordinateur avant de passer en boutique !
+                    </p>
+
+
+                    <div class="space-y-4 mb-8">
+
+                        <div class="flex items-center gap-3 text-xs text-gray-200">
+
+                            <span class="w-7 h-7 rounded-full bg-milunettes-orange/20 text-milunettes-orange flex items-center justify-center font-bold">
+                                1
+                            </span>
+
+                            <span>
+                                Ajustement automatique de la taille des montures
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-3 text-xs text-gray-200">
+
+                            <span class="w-7 h-7 rounded-full bg-milunettes-orange/20 text-milunettes-orange flex items-center justify-center font-bold">
+                                2
+                            </span>
+
+                            <span>
+                                Changez de couleur de verres et de branches en 1 clic
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-3 text-xs text-gray-200">
+
+                            <span class="w-7 h-7 rounded-full bg-milunettes-orange/20 text-milunettes-orange flex items-center justify-center font-bold">
+                                3
+                            </span>
+
+                            <span>
+                                Réservez gratuitement pour essayer en boutique
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="flex flex-wrap gap-3">
+
+                        <button
+                            onclick="triggerWebcamSim()"
+                            class="bg-gradient-to-r from-milunettes-orange to-milunettes-darkorange text-white px-6 py-3 rounded-full font-bold text-xs hover:shadow-lg transition-all flex items-center gap-2">
+
+                            <i class="fa-solid fa-video"></i>
+                            Activer la Webcam
+
+                        </button>
+
+
+                        <button
+                            onclick="switchTryOnModel()"
+                            class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-full font-bold text-xs transition-all">
+
+                            <i class="fa-solid fa-user-gear"></i>
+                            Changer de Mannequin
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Simulateur -->
+
+                <div class="lg:col-span-7">
+
+                    <div class="bg-slate-800 rounded-3xl p-4 sm:p-6 border border-slate-700 shadow-2xl relative">
+
+                        <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-black flex items-center justify-center border border-slate-700">
+
+                            <img
+                                id="tryon-model-img"
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                                alt="Model Try-On"
+                                class="w-full h-full object-cover">
+
+
+                            <div
+                                id="tryon-glasses-overlay"
+                                class="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-300 transform scale-110">
+
+                                <svg
+                                    id="tryon-svg"
+                                    class="w-64 h-32 drop-shadow-2xl"
+                                    viewBox="0 0 200 80"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+
+                                    <rect
+                                        x="20"
+                                        y="20"
+                                        width="65"
+                                        height="40"
+                                        rx="12"
+                                        stroke="#FF8C00"
+                                        stroke-width="5"
+                                        fill="rgba(255, 140, 0, 0.2)" />
+
+                                    <rect
+                                        x="115"
+                                        y="20"
+                                        width="65"
+                                        height="40"
+                                        rx="12"
+                                        stroke="#FF8C00"
+                                        stroke-width="5"
+                                        fill="rgba(255, 140, 0, 0.2)" />
+
+                                    <path
+                                        d="M85 30 Q100 25 115 30"
+                                        stroke="#FF8C00"
+                                        stroke-width="5"
+                                        fill="none" />
+
+                                    <path
+                                        d="M20 30 L5 25"
+                                        stroke="#FF8C00"
+                                        stroke-width="4" />
+
+                                    <path
+                                        d="M180 30 L195 25"
+                                        stroke="#FF8C00"
+                                        stroke-width="4" />
+
+                                </svg>
+
+                            </div>
+
+
+                            <div
+                                id="webcam-status"
+                                class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-2 border border-white/10 font-brand">
+
+                                <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+
+                                Détection faciale active
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Choix monture -->
+
+                        <div class="mt-4 flex items-center justify-between gap-2 overflow-x-auto pb-1">
+
+                            <span class="text-xs text-gray-400 font-brand flex-shrink-0">
+                                Monture à tester :
+                            </span>
+
+                            <div class="flex gap-2">
+
+                                <button
+                                    onclick="changeVirtualStyle('#FF8C00', 'Orange Sunset')"
+                                    class="px-3 py-1.5 rounded-xl bg-slate-900 border border-milunettes-orange text-xs text-milunettes-orange font-bold hover:bg-milunettes-orange hover:text-white transition-all">
+                                    Orange Sunset
+                                </button>
+
+                                <button
+                                    onclick="changeVirtualStyle('#D32F2F', 'Rouge Passion')"
+                                    class="px-3 py-1.5 rounded-xl bg-slate-900 border border-milunettes-red text-xs text-milunettes-red font-bold hover:bg-milunettes-red hover:text-white transition-all">
+                                    Rouge Passion
+                                </button>
+
+                                <button
+                                    onclick="changeVirtualStyle('#2C3E50', 'Ébène Classique')"
+                                    class="px-3 py-1.5 rounded-xl bg-slate-900 border border-gray-500 text-xs text-gray-200 font-bold hover:bg-gray-700 transition-all">
+                                    Ébène Classique
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         POINTS DE VENTE
+    ====================================================== -->
+
+    <section
+        id="points-de-vente"
+        class="py-20 bg-milunettes-lightorange/50 border-y border-orange-100">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-2xl mx-auto mb-12">
+
+                <span class="text-xs font-bold uppercase tracking-wider text-milunettes-red font-brand">
+
+                    <i class="fa-solid fa-store mr-1"></i>
+                    Proximité & Service
+
+                </span>
+
+                <h2 class="font-brand text-3xl sm:text-4xl text-milunettes-dark font-bold mt-1">
+                    Nos Points de Vente Mi-Lunettes
+                </h2>
+
+                <p class="text-gray-600 text-sm mt-2">
+                    Retrouvez nos opticiens diplômés en magasin pour un examen de la vue gratuit et l'ajustement sur-mesure de vos montures.
+                </p>
+
+            </div>
+
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                <!-- Liste magasins -->
+
+                <div
+                    class="lg:col-span-5 space-y-4 max-h-[500px] overflow-y-auto custom-scrollbar pr-2"
+                    id="store-list-container">
+                </div>
+
+
+                <!-- Carte -->
+
+                <div class="lg:col-span-7 bg-white p-4 rounded-3xl border border-orange-200 shadow-md h-[500px] relative overflow-hidden flex flex-col justify-between">
+
+                    <div
+                        class="relative w-full h-full rounded-2xl bg-amber-100/60 border border-orange-200 overflow-hidden flex items-center justify-center"
+                        id="map-preview">
+
+                        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#FF8C00_2px,transparent_2px)] [background-size:24px_24px]"></div>
+
+
+                        <div class="text-center relative z-10 p-6 bg-white/90 backdrop-blur-md rounded-2xl border border-orange-200 shadow-xl max-w-sm">
+
+                            <div class="w-12 h-12 rounded-full bg-milunettes-red text-white flex items-center justify-center mx-auto mb-3 shadow-lg badge-pulse">
+
+                                <i class="fa-solid fa-location-dot text-2xl"></i>
+
+                            </div>
+
+
+                            <h3
+                                id="map-store-name"
+                                class="font-brand text-lg text-milunettes-dark">
+                                Mi-Lunettes Paris Opéra
+                            </h3>
+
+
+                            <p
+                                id="map-store-addr"
+                                class="text-xs text-gray-600 mt-1">
+                                12 Boulevard des Capucines, 75009 Paris
+                            </p>
+
+
+                            <p
+                                id="map-store-hours"
+                                class="text-[11px] text-milunettes-orange font-bold mt-2">
+
+                                <i class="fa-regular fa-clock mr-1"></i>
+                                Ouvert de 09:30 à 19:30
+
+                            </p>
+
+
+                            <button
+                                onclick="bookStoreAppointment()"
+                                class="mt-4 w-full bg-milunettes-orange text-white py-2 rounded-xl text-xs font-bold font-brand hover:bg-milunettes-darkorange transition-colors">
+
+                                Prendre RDV en boutique
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TEMOIGNAGES
+    ====================================================== -->
+
+    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+
+            <!-- Témoignage 1 -->
+
+            <div class="bg-white p-6 rounded-2xl border border-orange-100 shadow-sm flex flex-col justify-between">
+
+                <div>
+
+                    <div class="flex text-milunettes-orange text-xs gap-1 mb-3">
+                        ★★★★★
+                    </div>
+
+                    <p class="text-xs text-gray-700 italic leading-relaxed mb-4">
+                        "Service au top chez Mi-Lunettes ! J'ai commandé ma monture solaire après un essai virtuel rapide. Retrait en boutique en 24h avec réglage des branches gratuit."
+                    </p>
+
+                </div>
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-8 h-8 rounded-full bg-milunettes-orange text-white flex items-center justify-center font-bold text-xs font-brand">
+                        ML
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold text-milunettes-dark">
+                            Marc D.
+                        </h4>
+
+                        <p class="text-[10px] text-gray-400">
+                            Client boutique Paris
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Témoignage 2 -->
+
+            <div class="bg-white p-6 rounded-2xl border border-orange-100 shadow-sm flex flex-col justify-between">
+
+                <div>
+
+                    <div class="flex text-milunettes-orange text-xs gap-1 mb-3">
+                        ★★★★★
+                    </div>
+
+                    <p class="text-xs text-gray-700 italic leading-relaxed mb-4">
+                        "Un accueil toujours chaleureux comme sur leur logo ! Les opticiens ont été de très bon conseil pour mon renouvellement d'ordonnance."
+                    </p>
+
+                </div>
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-8 h-8 rounded-full bg-milunettes-red text-white flex items-center justify-center font-bold text-xs font-brand">
+                        SL
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold text-milunettes-dark">
+                            Sophie L.
+                        </h4>
+
+                        <p class="text-[10px] text-gray-400">
+                            Cliente Lyon Bellecour
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Témoignage 3 -->
+
+            <div class="bg-white p-6 rounded-2xl border border-orange-100 shadow-sm flex flex-col justify-between">
+
+                <div>
+
+                    <div class="flex text-milunettes-orange text-xs gap-1 mb-3">
+                        ★★★★★
+                    </div>
+
+                    <p class="text-xs text-gray-700 italic leading-relaxed mb-4">
+                        "Rapport qualité/prix imbattable pour des verres anti-lumière bleue. Toute la famille est équipée chez eux."
+                    </p>
+
+                </div>
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-8 h-8 rounded-full bg-milunettes-dark text-white flex items-center justify-center font-bold text-xs font-brand">
+                        TB
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-bold text-milunettes-dark">
+                            Thomas B.
+                        </h4>
+
+                        <p class="text-[10px] text-gray-400">
+                            Client Marseille
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Newsletter -->
+
+        <div class="bg-gradient-to-r from-milunettes-orange to-milunettes-red rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+
+            <div class="max-w-2xl mx-auto text-center relative z-10">
+
+                <span class="bg-white/20 text-white font-brand text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">
+                    Club Mi-Lunettes
+                </span>
+
+                <h2 class="font-brand text-3xl sm:text-4xl font-bold mb-3">
+                    Recevez -15% sur votre 1ère paire !
+                </h2>
+
+                <p class="text-xs sm:text-sm text-white/90 mb-6">
+                    Inscrivez-vous à notre newsletter pour profiter de nos remises exclusives et ventes privées en magasin.
+                </p>
+
+
+                <form
+                    onsubmit="handleNewsletter(event)"
+                    class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+
+                    <input
+                        type="email"
+                        required
+                        placeholder="Votre adresse email..."
+                        class="px-5 py-3 rounded-full bg-white text-milunettes-dark text-xs focus:outline-none flex-grow">
+
+                    <button
+                        type="submit"
+                        class="bg-milunettes-dark text-white px-8 py-3 rounded-full text-xs font-bold font-brand hover:bg-slate-800 transition-colors shadow-md">
+
+                        S'inscrire 👍
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer
+        id="contact"
+        class="bg-milunettes-dark text-gray-300 pt-16 pb-12 border-t border-slate-800">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+
+                <div>
+
+                    <a href="#" class="inline-block mb-4">
+
+                        <img
+                            src="logo.png"
+                            alt="Mi-Lunettes Logo"
+                            class="h-12 w-auto object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/180x60/ff8c00/ffffff?text=Mi-Lunettes';">
+
+                    </a>
+
+                    <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                        Mi-Lunettes : Votre opticien de confiance en ligne et en magasin. Des montures stylées, des prix transparents et le sourire garanti !
+                    </p>
+
+                    <div class="flex gap-3 text-milunettes-orange">
+
+                        <a href="#"
+                           class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-milunettes-orange hover:text-white transition-colors">
+
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+
+                        </a>
+
+                        <a href="#"
+                           class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-milunettes-orange hover:text-white transition-colors">
+
+                            <i class="fa-brands fa-instagram text-xs"></i>
+
+                        </a>
+
+                        <a href="#"
+                           class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-milunettes-orange hover:text-white transition-colors">
+
+                            <i class="fa-brands fa-tiktok text-xs"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-brand text-white text-sm font-bold mb-4">
+                        Navigation
+                    </h3>
+
+                    <ul class="space-y-2 text-xs text-gray-400">
+
+                        <li><a href="#hero" class="hover:text-milunettes-orange">Accueil</a></li>
+
+                        <li><a href="#collections" class="hover:text-milunettes-orange">
+                            Collections Lunettes
+                        </a></li>
+
+                        <li><a href="#essayage" class="hover:text-milunettes-orange">
+                            Essayage Virtuel
+                        </a></li>
+
+                        <li><a href="#points-de-vente" class="hover:text-milunettes-orange">
+                            Trouver une boutique
+                        </a></li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-brand text-white text-sm font-bold mb-4">
+                        Services Optiques
+                    </h3>
+
+                    <ul class="space-y-2 text-xs text-gray-400">
+
+                        <li>
+                            <a href="#" class="hover:text-milunettes-orange">
+                                Examen de la vue gratuit
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-milunettes-orange">
+                                Tiers Payant & Mutuelles
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-milunettes-orange">
+                                Garantie Casse 2 ans
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-milunettes-orange">
+                                Ajustement en boutique
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-brand text-white text-sm font-bold mb-4">
+                        Service Client
+                    </h3>
+
+                    <p class="text-xs text-gray-400 mb-2">
+                        <i class="fa-solid fa-phone text-milunettes-orange mr-2"></i>
+                        01 80 00 00 00
+                    </p>
+
+                    <p class="text-xs text-gray-400 mb-2">
+                        <i class="fa-solid fa-envelope text-milunettes-orange mr-2"></i>
+                        contact@mi-lunettes.fr
+                    </p>
+
+                    <p class="text-xs text-gray-400">
+                        <i class="fa-solid fa-clock text-milunettes-orange mr-2"></i>
+                        Lun - Sam : 09h00 - 19h00
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="border-t border-slate-800 pt-6 text-center text-[11px] text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-3">
+
+                <p>
+                    &copy; 2026 Mi-Lunettes. Tous droits réservés.
+                </p>
+
+                <div class="flex gap-4">
+
+                    <a href="#" class="hover:text-gray-300">
+                        Mentions Légales
+                    </a>
+
+                    <a href="#" class="hover:text-gray-300">
+                        Politique de Confidentialité
+                    </a>
+
+                    <a href="#" class="hover:text-gray-300">
+                        CGV
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         PANIER
+    ====================================================== -->
+
+    <div
+        id="cart-drawer"
+        class="fixed inset-0 z-50 overflow-hidden hidden"
+        role="dialog"
+        aria-modal="true">
+
+        <div
+            class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            onclick="toggleCartDrawer()">
+        </div>
+
+
+        <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
+
+                <div class="p-5 border-b border-orange-100 flex items-center justify-between bg-milunettes-lightorange/50">
+
+                    <h2 class="font-brand text-lg font-bold text-milunettes-dark flex items-center gap-2">
+
+                        <i class="fa-solid fa-cart-shopping text-milunettes-orange"></i>
+
+                        Votre Panier Mi-Lunettes
+
+                    </h2>
+
+                    <button
+                        onclick="toggleCartDrawer()"
+                        class="p-2 text-gray-400 hover:text-milunettes-dark transition-colors">
+
+                        <i class="fa-solid fa-xmark text-lg"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="p-5 flex-1 overflow-y-auto custom-scrollbar"
+                    id="cart-items-container">
+                </div>
+
+
+                <div class="p-5 border-t border-orange-100 bg-milunettes-lightorange/30 space-y-3">
+
+                    <div class="flex justify-between text-xs text-gray-500">
+
+                        <span>Retrait en Point de Vente</span>
+
+                        <span class="text-green-600 font-bold">
+                            GRATUIT
+                        </span>
+
+                    </div>
+
+
+                    <div class="flex justify-between text-base font-bold text-milunettes-dark border-t border-orange-200 pt-2 font-brand">
+
+                        <span>Total TTC</span>
+
+                        <span
+                            id="cart-total-price"
+                            class="text-milunettes-red">
+                            0,00 €
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        onclick="checkout()"
+                        class="w-full bg-gradient-to-r from-milunettes-orange to-milunettes-red text-white py-3.5 rounded-full font-bold text-xs font-brand hover:opacity-95 transition-all shadow-md flex items-center justify-center gap-2">
+
+                        Valider ma commande
+
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="fixed bottom-6 right-6 bg-milunettes-dark text-white px-5 py-3 rounded-2xl shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 text-xs border border-orange-400/30">
+
+        <i class="fa-solid fa-circle-check text-milunettes-orange text-lg"></i>
+
+        <span
+            id="toast-message"
+            class="font-medium">
+            Produit ajouté !
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         NOTRE JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>

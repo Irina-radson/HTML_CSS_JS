@@ -1,0 +1,69 @@
+/* =========================================================
+   MI-LUNETTES
+   CSS PERSONNALISÉ
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+.glass-header {
+    background: rgba(255, 255, 255, 0.92);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* ---------------------------------------------------------
+   SCROLLBAR
+--------------------------------------------------------- */
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #FFF3E0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #FF8C00;
+    border-radius: 10px;
+}
+
+
+/* ---------------------------------------------------------
+   PRODUCT CARD
+--------------------------------------------------------- */
+
+.product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+
+/* ---------------------------------------------------------
+   BADGE ANIMATION
+--------------------------------------------------------- */
+
+.badge-pulse {
+    animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+
+@keyframes pulse-ring {
+
+    0% {
+        transform: scale(0.95);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(0.95);
+    }
+
+}
